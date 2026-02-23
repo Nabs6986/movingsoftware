@@ -21,6 +21,6 @@
   --color-accent-600: #ea580c;
   --color-accent-700: #c2410c;
 
-  --font-family-sans: var(--font-inter), system-ui, sans-serif;
+  --font-family-sans: system-ui, -apple-system, "Segoe UI", sans-serif;
   --shadow-brand: 0 4px 14px 0 rgb(30 64 175 / 0.25);
 }
