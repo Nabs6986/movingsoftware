@@ -925,6 +925,153 @@ export const softwareReviews: Record<string, SoftwareReview> = {
     metaTitle: "Oncue Review (2026): Visual Dispatch & Moving Software Features",
     metaDescription: "Comprehensive Oncue moving software review 2026. Visual dispatch board, pricing, features, and who Oncue is best for in the moving industry.",
   },
+
+  yembo: {
+    slug: "yembo",
+    name: "Yembo",
+    tagline: "AI-powered virtual survey technology for modern moving companies",
+    logoInitials: "YB",
+    logoColor: "#2563eb",
+    rating: 4.3,
+    ratingCount: 150,
+    founded: "2018",
+    website: "https://www.yembo.ai",
+    quickVerdict: "Yembo is the best-in-class AI virtual survey tool for moving companies. Customers use a smartphone or tablet to walk through their home, and Yembo's AI automatically identifies and catalogs every item — generating accurate inventory lists, cube sheets, and weight estimates without an in-home visit. It reduces the need for costly in-home surveys by 70%+ and integrates with major moving platforms including SmartMoving and MoveitPro. Yembo is not a complete moving management platform; it's a specialized add-on that dramatically modernizes the survey and estimating process.",
+    priceRange: "Custom / typically $200–$500+/mo",
+    bestFor: "Moving companies wanting to modernize their survey and estimating process without replacing their entire software stack",
+    notIdealFor: "Companies looking for an all-in-one moving software solution — Yembo only handles surveys and estimates",
+    pricingTiers: [
+      {
+        tier: "Starter",
+        price: "Contact for pricing",
+        description: "For moving companies doing lower survey volumes looking to launch virtual surveys",
+        features: ["AI-powered virtual surveys", "Automatic item recognition", "Cube sheet generation", "Inventory list creation", "Photo documentation", "Customer-facing survey link", "Basic reporting"],
+      },
+      {
+        tier: "Growth",
+        price: "Contact for pricing",
+        description: "For companies doing moderate survey volume with integration needs",
+        features: ["Everything in Starter", "Integration with SmartMoving, MoveitPro, and others", "Advanced inventory reporting", "Weight/volume estimate export", "Team management & multiple estimators", "Priority support"],
+        highlighted: true,
+      },
+      {
+        tier: "Enterprise",
+        price: "Custom",
+        description: "For high-volume operations and multi-location companies",
+        features: ["Everything in Growth", "Custom integrations", "Dedicated account manager", "SLA guarantees", "Volume-based pricing", "Advanced analytics & benchmarking"],
+      },
+    ],
+    pricingNote: "Yembo uses custom, volume-based pricing — exact costs depend on the number of virtual surveys completed per month. Pricing is not published publicly. Contact their sales team for a quote based on your survey volume.",
+    features: [
+      {
+        category: "Estimating & Surveys (Yembo's Strength)",
+        items: [
+          { name: "AI Virtual Survey Technology", included: true, note: "Industry-leading accuracy" },
+          { name: "Automatic Item Recognition", included: true, note: "AI catalogs items without manual entry" },
+          { name: "Cube Sheet Generation", included: true },
+          { name: "Inventory List Creation", included: true },
+          { name: "Weight/Volume Estimates", included: true },
+          { name: "Photo Documentation", included: true },
+        ],
+      },
+      {
+        category: "Customer Experience",
+        items: [
+          { name: "Customer-Facing Survey Link", included: true, note: "Sent via SMS or email" },
+          { name: "Smartphone/Tablet Survey", included: true },
+          { name: "Guided Survey Walkthrough", included: true },
+          { name: "Survey Progress Tracking", included: true },
+          { name: "Automated Survey Reminders", included: true },
+          { name: "Survey Completion Notifications", included: true },
+        ],
+      },
+      {
+        category: "Integrations & Workflow",
+        items: [
+          { name: "SmartMoving Integration", included: true },
+          { name: "MoveitPro Integration", included: true },
+          { name: "Other Platform Integrations", included: "Growth plan" },
+          { name: "API Access", included: "Growth plan" },
+          { name: "Estimate Export (to CRM)", included: true },
+          { name: "Multi-Estimator Support", included: "Growth plan" },
+        ],
+      },
+      {
+        category: "Operations & Reporting",
+        items: [
+          { name: "Survey Completion Dashboard", included: true },
+          { name: "Volume & Accuracy Reporting", included: true },
+          { name: "Advanced Analytics", included: "Enterprise" },
+          { name: "Multi-Location Support", included: "Enterprise" },
+          { name: "Team Management", included: "Growth plan" },
+          { name: "Custom Reporting", included: "Enterprise" },
+        ],
+      },
+      {
+        category: "Features Not Included",
+        items: [
+          { name: "CRM & Lead Management", included: false, note: "Use SmartMoving, MoveitPro, etc." },
+          { name: "Dispatch & Scheduling", included: false, note: "Not a full moving platform" },
+          { name: "Electronic BOL", included: false },
+          { name: "Crew Mobile App", included: false },
+          { name: "Payroll & Billing", included: false },
+          { name: "Payment Processing", included: false },
+        ],
+      },
+    ],
+    pros: [
+      "Best-in-class AI survey technology — automatically identifies and catalogs household items with high accuracy",
+      "Reduces costly in-home estimate visits by 70%+ without sacrificing estimate quality",
+      "Customer-friendly survey process completed via smartphone — no scheduling a sales rep visit",
+      "Integrates with SmartMoving, MoveitPro, and other major moving platforms",
+      "Generates accurate cube sheets and weight estimates that reduce move-day surprises",
+      "Speeds up the estimating process significantly — surveys completed in minutes, not days",
+    ],
+    cons: [
+      "Not a complete moving software solution — requires a separate platform for CRM, dispatch, billing, and operations",
+      "Custom pricing lacks transparency — difficult to compare costs without a sales call",
+      "Learning curve for customers who are less tech-savvy with smartphone surveys",
+      "Adds a separate monthly cost on top of existing moving software subscriptions",
+      "ROI depends on survey volume — low-volume operations may not see cost savings over in-home visits",
+    ],
+    bestForList: [
+      "Moving companies doing a high volume of estimates that want to cut in-home survey costs",
+      "Long-distance movers where in-home surveys are logistically difficult or expensive",
+      "Companies already using SmartMoving or MoveitPro who want to modernize their pre-move survey process",
+      "Operations focused on improving customer experience with a modern, contactless survey option",
+      "Moving companies that want accurate weight and volume estimates before moving day",
+    ],
+    notIdealForList: [
+      "Companies looking for an all-in-one platform to replace their current moving software",
+      "Small operations doing only a handful of estimates per month where ROI is limited",
+      "Companies whose customer base skews older and is less comfortable with smartphone technology",
+    ],
+    comparisonSlugs: ["yembo-vs-moveitpro"],
+    faqs: [
+      {
+        question: "What exactly does Yembo do?",
+        answer: "Yembo is an AI-powered virtual survey tool for moving companies. When a customer books a move, they receive a survey link via SMS or email. They use their smartphone or tablet to walk through each room, and Yembo's AI automatically identifies and catalogs every item. The result is a complete inventory list, cube sheet, and weight/volume estimate — all without a sales rep ever visiting the home. This makes the estimating process faster, cheaper, and more convenient for both the moving company and the customer.",
+      },
+      {
+        question: "How much does Yembo cost?",
+        answer: "Yembo uses custom, volume-based pricing that is not published publicly. Based on market information, costs typically range from $200 to $500+ per month depending on how many virtual surveys your company completes each month. You'll need to contact their sales team for an exact quote. Factor in these costs alongside your existing moving software platform, since Yembo is an add-on tool, not a replacement.",
+      },
+      {
+        question: "Does Yembo replace moving company software like SmartMoving or MoveitPro?",
+        answer: "No. Yembo is a specialized survey and estimating tool, not a complete moving management platform. It doesn't include CRM, lead management, dispatch, billing, electronic BOL, or payroll — the full suite of features you get from platforms like SmartMoving or MoveitPro. Yembo is designed to integrate with those platforms, feeding accurate survey data and estimates directly into your existing workflow.",
+      },
+      {
+        question: "What moving software platforms does Yembo integrate with?",
+        answer: "Yembo has native integrations with SmartMoving and MoveitPro, two of the most widely used moving platforms. It also supports API access on higher-tier plans, allowing integration with other moving software. If you're evaluating Yembo, confirm whether it integrates with your specific platform before committing.",
+      },
+      {
+        question: "How accurate are Yembo's AI surveys compared to in-home estimates?",
+        answer: "Yembo's AI surveys are designed to match or closely approximate the accuracy of professional in-home surveys for most household moves. The AI has been trained on millions of household items and can accurately estimate volume and weight for standard residential moves. Accuracy improves as customers follow the survey prompts carefully. Some companies report that Yembo surveys are accurate enough to significantly reduce move-day disputes over underestimated volume.",
+      },
+    ],
+    metaTitle: "Yembo Review (2026): AI Virtual Survey Technology for Moving Companies",
+    metaDescription: "Comprehensive Yembo review for 2026. AI-powered virtual surveys, pricing, integrations with SmartMoving & MoveitPro, pros/cons, and who it's best for.",
+  },
 };
 
 export function getSoftwareReview(slug: string): SoftwareReview | undefined {

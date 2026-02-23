@@ -56,6 +56,15 @@ export function Footer() {
         <div className="mt-8 pt-8 border-t border-slate-200 text-center text-sm text-slate-500">
           <p>© {new Date().getFullYear()} MovingSoftware.io. All rights reserved.</p>
           <p className="mt-2">
+            <Link href="/about" className="hover:text-slate-700 underline">About</Link>
+            {" · "}
+            <Link href="/contact" className="hover:text-slate-700 underline">Contact</Link>
+            {" · "}
+            <Link href="/how-we-review" className="hover:text-slate-700 underline">How We Review</Link>
+            {" · "}
+            <Link href="/faq" className="hover:text-slate-700 underline">FAQ</Link>
+          </p>
+          <p className="mt-2">
             Affiliate Disclosure: Some links on this site may earn us a commission at no extra cost to you. Our reviews are independent and unbiased.
           </p>
         </div>

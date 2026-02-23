@@ -15,6 +15,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 1,
     },
+    { url: `${baseUrl}/about`, lastModified: now, changeFrequency: "monthly" as const, priority: 0.5 },
+    { url: `${baseUrl}/contact`, lastModified: now, changeFrequency: "monthly" as const, priority: 0.5 },
+    { url: `${baseUrl}/faq`, lastModified: now, changeFrequency: "monthly" as const, priority: 0.7 },
+    { url: `${baseUrl}/how-we-review`, lastModified: now, changeFrequency: "monthly" as const, priority: 0.6 },
     ...getAllComparisonSlugs().map((slug) => ({
       url: `${baseUrl}/vs/${slug}`,
       lastModified: now,

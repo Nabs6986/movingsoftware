@@ -44,16 +44,31 @@ export default async function SoftwarePage({ params }: Props) {
 
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": review.name,
-    "applicationCategory": "Moving Company Software",
-    "operatingSystem": "Web",
-    "url": review.website,
-    "aggregateRating": {
-      "@type": "AggregateRating",
+    "@type": "Review",
+    "name": `${review.name} Review`,
+    "reviewBody": review.quickVerdict,
+    "datePublished": "2026-02-01",
+    "dateModified": "2026-02-17",
+    "author": { "@type": "Organization", "name": "MovingSoftware.io", "url": "https://movingsoftware.io" },
+    "reviewRating": {
+      "@type": "Rating",
       "ratingValue": review.rating.toString(),
-      "reviewCount": review.ratingCount.toString(),
       "bestRating": "5",
+      "worstRating": "1",
+    },
+    "itemReviewed": {
+      "@type": "SoftwareApplication",
+      "name": review.name,
+      "applicationCategory": "Moving Company Software",
+      "operatingSystem": "Web",
+      "url": review.website,
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": review.rating.toString(),
+        "reviewCount": review.ratingCount.toString(),
+        "bestRating": "5",
+        "worstRating": "1",
+      },
     },
   };
 
