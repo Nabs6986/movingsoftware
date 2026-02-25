@@ -4,6 +4,8 @@ import { notFound } from "next/navigation";
 import { Check, ArrowRight, Trophy, HelpCircle, Award, Star } from "lucide-react";
 import { Navbar } from "@/components/marketing/Navbar";
 import { Footer } from "@/components/marketing/Footer";
+import { ItemListSchema } from "@/components/schema/ItemListSchema";
+import { BreadcrumbSchema } from "@/components/schema/BreadcrumbSchema";
 import { getBestOf, getAllBestOfSlugs } from "../_data/bestof";
 
 interface Props {
@@ -34,20 +36,6 @@ export default async function BestOfPage({ params }: Props) {
   const page = getBestOf(slug);
   if (!page) notFound();
 
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "ItemList",
-    "name": page.heroHeadline,
-    "description": page.description,
-    "itemListElement": page.recommendations.map((rec, index) => ({
-      "@type": "ListItem",
-      "position": index + 1,
-      "name": rec.name,
-      "description": rec.reasoning,
-      "url": rec.affiliateUrl,
-    })),
-  };
-
   const faqLd = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -60,8 +48,23 @@ export default async function BestOfPage({ params }: Props) {
 
   return (
     <>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "https://movingsoftware.io" },
+          { name: "Best Of", url: "https://movingsoftware.io/best" },
+          { name: page.title, url: `https://movingsoftware.io/best/${slug}` },
+        ]}
+      />
+      <ItemListSchema
+        name={page.heroHeadline}
+        url={`https://movingsoftware.io/best/${slug}`}
+        items={page.recommendations.map((rec) => ({
+          name: rec.name,
+          url: rec.affiliateUrl,
+          description: rec.reasoning,
+        }))}
+      />
       <Navbar />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
       <main className="pt-16">
         {/* Hero */}

@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight, Truck, Star, Check, Zap } from "lucide-react";
 import { Navbar } from "@/components/marketing/Navbar";
 import { Footer } from "@/components/marketing/Footer";
+import { BreadcrumbSchema } from "@/components/schema/BreadcrumbSchema";
 import { getAllComparisonSlugs, getComparison } from "./vs/_data/comparisons";
 
 const featuredSoftware = [
@@ -38,6 +39,11 @@ export default function HomePage() {
 
   return (
     <>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "https://movingsoftware.io" },
+        ]}
+      />
       <Navbar />
       <main className="pt-16">
         {/* Hero */}

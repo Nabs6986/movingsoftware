@@ -4,6 +4,8 @@ import { notFound } from "next/navigation";
 import { Check, ArrowRight, Star, HelpCircle, Trophy } from "lucide-react";
 import { Navbar } from "@/components/marketing/Navbar";
 import { Footer } from "@/components/marketing/Footer";
+import { BreadcrumbSchema } from "@/components/schema/BreadcrumbSchema";
+import { ItemListSchema } from "@/components/schema/ItemListSchema";
 import { getAudience, getAllAudienceSlugs } from "../_data/audiences";
 
 interface Props {
@@ -33,20 +35,6 @@ export default async function AudiencePage({ params }: Props) {
   const audience = getAudience(slug);
   if (!audience) notFound();
 
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "ItemList",
-    "name": audience.heroHeadline,
-    "description": audience.audienceDescription,
-    "itemListElement": audience.topRecommendations.map((rec, index) => ({
-      "@type": "ListItem",
-      "position": index + 1,
-      "name": rec.name,
-      "description": rec.reasoning,
-      "url": rec.affiliateUrl,
-    })),
-  };
-
   const faqLd = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -59,8 +47,23 @@ export default async function AudiencePage({ params }: Props) {
 
   return (
     <>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "https://movingsoftware.io" },
+          { name: "By Mover Type", url: "https://movingsoftware.io/for" },
+          { name: audience.title, url: `https://movingsoftware.io/for/${slug}` },
+        ]}
+      />
+      <ItemListSchema
+        name={audience.heroHeadline}
+        url={`https://movingsoftware.io/for/${slug}`}
+        items={audience.topRecommendations.map((rec) => ({
+          name: rec.name,
+          url: rec.affiliateUrl,
+          description: rec.reasoning,
+        }))}
+      />
       <Navbar />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
       <main className="pt-16">
         {/* Hero */}

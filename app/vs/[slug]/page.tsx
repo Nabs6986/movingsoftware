@@ -4,6 +4,8 @@ import { notFound } from "next/navigation";
 import { Check, X, ArrowRight, Star, HelpCircle } from "lucide-react";
 import { Navbar } from "@/components/marketing/Navbar";
 import { Footer } from "@/components/marketing/Footer";
+import { ComparisonSchema } from "@/components/schema/ComparisonSchema";
+import { BreadcrumbSchema } from "@/components/schema/BreadcrumbSchema";
 import { getComparison, getAllComparisonSlugs } from "../_data/comparisons";
 
 interface Props {
@@ -51,6 +53,20 @@ export default async function ComparisonPage({ params }: Props) {
 
   return (
     <>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "https://movingsoftware.io" },
+          { name: "Comparisons", url: "https://movingsoftware.io/vs" },
+          { name: `${platformA.name} vs ${platformB.name}`, url: `https://movingsoftware.io/vs/${slug}` },
+        ]}
+      />
+      <ComparisonSchema
+        products={[
+          { name: platformA.name, description: platformA.bestFor },
+          { name: platformB.name, description: platformB.bestFor },
+        ]}
+        url={`https://movingsoftware.io/vs/${slug}`}
+      />
       <Navbar />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <main className="pt-16">

@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Navbar } from "@/components/marketing/Navbar";
 import { Footer } from "@/components/marketing/Footer";
+import { FAQSchema } from "@/components/schema/FAQSchema";
+import { BreadcrumbSchema } from "@/components/schema/BreadcrumbSchema";
 
 export const metadata: Metadata = {
   title: "FAQ — Moving Company Software Questions Answered",
@@ -138,28 +140,23 @@ const faqCategories = [
 
 const allQAs = faqCategories.flatMap((cat) => cat.questions);
 
-const faqJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: allQAs.map((item) => ({
-    "@type": "Question",
-    name: item.q,
-    acceptedAnswer: {
-      "@type": "Answer",
-      text: item.a,
-    },
-  })),
-};
-
 export default function FAQPage() {
   return (
     <>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "https://movingsoftware.io" },
+          { name: "FAQ", url: "https://movingsoftware.io/faq" },
+        ]}
+      />
+      <FAQSchema
+        faqs={allQAs.map((item) => ({
+          question: item.q,
+          answer: item.a,
+        }))}
+      />
       <Navbar />
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 pt-28">
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
-        />
 
         {/* Breadcrumb */}
         <nav className="text-sm text-slate-500 mb-6">

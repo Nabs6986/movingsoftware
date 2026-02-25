@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Navbar } from "@/components/marketing/Navbar";
 import { Footer } from "@/components/marketing/Footer";
+import { BreadcrumbSchema } from "@/components/schema/BreadcrumbSchema";
 
 export const metadata: Metadata = {
   title: "Contact MovingSoftware.io",
@@ -12,6 +13,12 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "https://movingsoftware.io" },
+          { name: "Contact", url: "https://movingsoftware.io/contact" },
+        ]}
+      />
       <Navbar />
       <main className="pt-16">
         <div className="mx-auto max-w-3xl px-6 py-12">

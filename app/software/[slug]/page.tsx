@@ -4,6 +4,9 @@ import { notFound } from "next/navigation";
 import { Check, X, ArrowRight, Star, HelpCircle, ExternalLink } from "lucide-react";
 import { Navbar } from "@/components/marketing/Navbar";
 import { Footer } from "@/components/marketing/Footer";
+import { SoftwareApplicationSchema } from "@/components/schema/SoftwareApplicationSchema";
+import { ReviewSchema } from "@/components/schema/ReviewSchema";
+import { BreadcrumbSchema } from "@/components/schema/BreadcrumbSchema";
 import { getSoftwareReview, getAllSoftwareSlugs } from "../_data/software";
 
 interface Props {
@@ -42,36 +45,6 @@ export default async function SoftwarePage({ params }: Props) {
   const review = getSoftwareReview(slug);
   if (!review) notFound();
 
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Review",
-    "name": `${review.name} Review`,
-    "reviewBody": review.quickVerdict,
-    "datePublished": "2026-02-01",
-    "dateModified": "2026-02-17",
-    "author": { "@type": "Organization", "name": "MovingSoftware.io", "url": "https://movingsoftware.io" },
-    "reviewRating": {
-      "@type": "Rating",
-      "ratingValue": review.rating.toString(),
-      "bestRating": "5",
-      "worstRating": "1",
-    },
-    "itemReviewed": {
-      "@type": "SoftwareApplication",
-      "name": review.name,
-      "applicationCategory": "Moving Company Software",
-      "operatingSystem": "Web",
-      "url": review.website,
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": review.rating.toString(),
-        "reviewCount": review.ratingCount.toString(),
-        "bestRating": "5",
-        "worstRating": "1",
-      },
-    },
-  };
-
   const faqLd = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -84,8 +57,30 @@ export default async function SoftwarePage({ params }: Props) {
 
   return (
     <>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "https://movingsoftware.io" },
+          { name: "Reviews", url: "https://movingsoftware.io/software" },
+          { name: review.name, url: `https://movingsoftware.io/software/${slug}` },
+        ]}
+      />
+      <SoftwareApplicationSchema
+        name={review.name}
+        description={review.quickVerdict}
+        rating={review.rating}
+        ratingCount={review.ratingCount}
+        price={review.priceRange}
+        url={review.website}
+      />
+      <ReviewSchema
+        name={`${review.name} Review`}
+        reviewBody={review.quickVerdict}
+        ratingValue={review.rating}
+        softwareName={review.name}
+        softwareUrl={review.website}
+        price={review.priceRange}
+      />
       <Navbar />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
       <main className="pt-16">
         {/* Hero */}

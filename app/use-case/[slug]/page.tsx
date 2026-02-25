@@ -4,6 +4,8 @@ import { notFound } from "next/navigation";
 import { Check, ArrowRight, HelpCircle, AlertCircle } from "lucide-react";
 import { Navbar } from "@/components/marketing/Navbar";
 import { Footer } from "@/components/marketing/Footer";
+import { ArticleSchema } from "@/components/schema/ArticleSchema";
+import { BreadcrumbSchema } from "@/components/schema/BreadcrumbSchema";
 import { getUseCase, getAllUseCaseSlugs } from "../_data/usecases";
 
 interface Props {
@@ -43,6 +45,21 @@ export default async function UseCasePage({ params }: Props) {
 
   return (
     <>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "https://movingsoftware.io" },
+          { name: "Use Cases", url: "https://movingsoftware.io/use-case" },
+          { name: useCase.headline, url: `https://movingsoftware.io/use-case/${slug}` },
+        ]}
+      />
+      <ArticleSchema
+        title={useCase.headline}
+        description={useCase.subheadline}
+        author="MovingSoftware.io"
+        datePublished="2026-02-01"
+        dateModified="2026-02-24"
+        url={`https://movingsoftware.io/use-case/${slug}`}
+      />
       <Navbar />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <main className="pt-16">
