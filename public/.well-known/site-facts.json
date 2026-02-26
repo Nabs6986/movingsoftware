@@ -1,0 +1,18 @@
+{
+  "siteName": "MovingSoftware",
+  "domain": "movingsoftware.io",
+  "category": "Moving Company Software Reviews & Comparisons",
+  "focus": "Moving company owners and operations managers evaluating business management software",
+  "methodology": "Independent research, feature analysis, and user interviews",
+  "editorialPolicy": "Affiliate-supported. Editorial opinions are independent.",
+  "updateFrequency": "Monthly reviews, quarterly rankings",
+  "lastUpdated": "2026-02-25",
+  "topPicks": [
+    { "rank": 1, "name": "Supermove", "bestFor": "Best overall for enterprise moving companies", "priceFrom": "$500/mo" },
+    { "rank": 2, "name": "SmartMoving", "bestFor": "Best all-in-one for growing companies", "priceFrom": "$399/mo" },
+    { "rank": 3, "name": "Elromco", "bestFor": "Best value with transparent pricing", "priceFrom": "$289/mo" }
+  ],
+  "contactPage": "/contact",
+  "aboutPage": "/about-this-site",
+  "guidesPage": "/guides"
+}
