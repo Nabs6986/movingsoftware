@@ -3,6 +3,7 @@ import { getAllComparisonSlugs } from "./vs/_data/comparisons";
 import { getAllAudienceSlugs } from "./for/_data/audiences";
 import { getAllUseCaseSlugs } from "./use-case/_data/usecases";
 import { getAllSoftwareSlugs } from "./software/_data/software";
+import { getAllPostSlugs } from "./blog/_data/posts";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://movingsoftware.io";
@@ -39,6 +40,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })),
     ...getAllSoftwareSlugs().map((slug) => ({
       url: `${baseUrl}/software/${slug}`,
+      lastModified: now,
+      changeFrequency: "monthly" as const,
+      priority: 0.75,
+    })),
+    {
+      url: `${baseUrl}/blog`,
+      lastModified: now,
+      changeFrequency: "weekly" as const,
+      priority: 0.8,
+    },
+    ...getAllPostSlugs().map((slug) => ({
+      url: `${baseUrl}/blog/${slug}`,
       lastModified: now,
       changeFrequency: "monthly" as const,
       priority: 0.75,
